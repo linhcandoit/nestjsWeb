@@ -33,17 +33,8 @@ export class NinjasService {
     }
 
     updateNinja(id: number, updateNinjaDto: UpdateNinjaDto) {
-        this.ninjas.forEach(ninja => {
-            if (ninja.id == id) {
-                let tmp: number = id;
-                let newninja = {
-                    ...updateNinjaDto,
-                    id
-                    // at this time we need to fix bug
-                }
-                ninja = ninja;
-
-            }
-        })
+        let ninjaNeed = this.ninjas.find(ninja => ninja.id === id);
+        ninjaNeed = Object.assign({ id, ...updateNinjaDto });
+        return ninjaNeed;
     }
 }
