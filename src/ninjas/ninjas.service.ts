@@ -42,7 +42,7 @@ export class NinjasService {
                     // at this time we need to fix bug
                 }
                 ninja = ninja;
-                this.ninjas.push(newninja)
+
             }
         })
     }
