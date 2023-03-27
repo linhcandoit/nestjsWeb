@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';
 
@@ -11,7 +11,11 @@ export class UsersService {
     }
 
     getUserById(id: number): User {
-        return this.users.find(user => user.id === id);
+        let tmp = this.users.find(user => user.id === id);
+        if (!tmp) {
+            throw new HttpException({ name: "Vu Tuan Linh" }, HttpStatus.BAD_REQUEST);
+        }
+        return tmp;
     }
 
     createUser(obj: CreateUserDto): User {
