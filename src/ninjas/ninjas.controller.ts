@@ -1,9 +1,11 @@
 import { Controller, Get, Param, Query, Post, Body } from '@nestjs/common';
 import { Put } from '@nestjs/common/decorators';
+import { ApiTags } from '@nestjs/swagger/dist/decorators';
 import { CreateNinjaDto } from './dto/create-ninja.dto';
 import { UpdateNinjaDto } from './dto/update-ninja.dto';
 import { NinjasService } from './ninjas.service';
 
+@ApiTags("ninjas")
 @Controller('ninjas')
 export class NinjasController {
 
